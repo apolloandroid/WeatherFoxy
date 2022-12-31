@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/burger"
+        android:icon="@drawable/ic_burger"
+        app:showAsAction="ifRoom"
+        android:title="@string/burger_icon"
+        />
+
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/ic_settings"
+        app:showAsAction="ifRoom"
+        android:title="@string/settings_icon"
+       />
+
+    <item
+        android:id="@+id/points"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_points"
+        android:title="@string/points_icon"
+       />
+</menu>

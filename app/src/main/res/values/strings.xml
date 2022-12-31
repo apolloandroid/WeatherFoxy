@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">WeatherFoxy</string>
+    <string name="burger_icon">burger</string>
+    <string name="settings_icon">settings</string>
+    <string name="points_icon">points</string>
+    <string name="temperature">-15°</string>
+    <string name="calendar">Среда, 14 января</string>
+    <string name="snowfall">Снегопад</string>
+    <string name="Monday">Понедельник</string>
+    <string name="Tuesday">Вторник</string>
+    <string name="Wednesday">Среда</string>
+    <string name="Thursday">Четверг</string>
+    <string name="Friday">Пятница</string>
+    <string name="Saturday">Суббота</string>
+    <string name="Sunday">Воскресенье</string>
+    <string name="temp_day">-11</string>
+    <string name="temperature_autumn">+8°</string>
+    <string name="calendar_autumn">Пятница, 28 сентября</string>
+    <string name="autumn_rain">Дождь</string>
+    <string name="temperature_summer">+24°</string>
+    <string name="calendar_summer">Понедельник, 10 июня</string>
+    <string name="summer_sun">Солнечно</string>
+    <string name="thunderstorm">Гроза</string>
+    <string name="hourly_forecast">Почасовой прогноз</string>
+    <string name="clock_d">Пн <b> 6.00 PM </b> </string>
+    <string name="partly_cloudy">Переменная облачность</string>
+    <string name="day_info">Осадки: %1$d %% (0мм) \nВлажность: %2$d %% \nУФ индекс: %3$d</string>
+    <string name="clock_temper">-25°</string>
+    <string name="additional_info">Давление: %1$dгПа \nВидимость: %2$sкм</string>
+    <string name="choice_animal">Выбрать себе питомца</string>
+
+</resources>
