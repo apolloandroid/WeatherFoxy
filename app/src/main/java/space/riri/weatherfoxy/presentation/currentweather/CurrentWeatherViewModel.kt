@@ -5,13 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 import space.riri.weatherfoxy.data.repo.WeatherRepository
 import space.riri.weatherfoxy.presentation.currentweather.mapper.TodayWeatherItemMapper
 import space.riri.weatherfoxy.presentation.currentweather.mapper.WeekWeatherItemMapper
-import space.riri.weatherfoxy.presentation.hourlyweather.HourlyWeatherModelUiState
-import space.riri.weatherfoxy.presentation.hourlyweather.mapper.HourlyWeatherItemMapper
 import javax.inject.Inject
 
 @HiltViewModel
@@ -19,27 +16,43 @@ class CurrentWeatherViewModel @Inject constructor(
     private val weatherRepository: WeatherRepository,
     private val todayMapper: TodayWeatherItemMapper,
     private val weekMapper: WeekWeatherItemMapper
-) : ViewModel(){
+) : ViewModel() {
 
     private val mutableUiState = MutableLiveData<CurrentWeatherUiState>()
-    val uiState : LiveData<CurrentWeatherUiState> = mutableUiState
+    val uiState: LiveData<CurrentWeatherUiState> = mutableUiState
 
     fun onViewCreated() {
         mutableUiState.value = CurrentWeatherUiState(isLoading = true)
-        weatherRepository.getTodayWeather()
-            .combine(weatherRepository.getWeekWeather()){todayModel, weekModels ->
-                CurrentWeatherUiState(
-                    todayModel = todayMapper.map(todayModel),
+        viewModelScope.launch {
+            try {
+
+
+                val models = weatherRepository.getTodayWeather()
+                val weekModels = weatherRepository.getWeekWeather()
+                val state = CurrentWeatherUiState(
+                    todayModel = todayMapper.map(models),
                     weekItems = weekMapper.map(weekModels)
                 )
-            }
-            .onEach { state ->
                 mutableUiState.postValue(state)
+            } catch (exception: Exception) {
+                exception.printStackTrace()
             }
-            .flowOn(Dispatchers.IO)
-            .catch {throwable ->
-                throwable.printStackTrace()
-            }
-            .launchIn(viewModelScope)
+        }
+//        weatherRepository.getTodayWeather()
+//            .combine(weatherRepository.getWeekWeather()){todayModel, weekModels ->
+//                CurrentWeatherUiState(
+//                    todayModel = todayMapper.map(todayModel),
+//                    weekItems = weekMapper.map(weekModels)
+//                )
+//            }
+//            .onEach { state ->
+//                mutableUiState.postValue(state)
+//            }
+//            .flowOn(Dispatchers.IO)
+//            .catch {throwable ->
+//                throwable.printStackTrace()
+//            }
+//            .launchIn(viewModelScope)
+//    }
     }
 }

@@ -1,15 +1,14 @@
 package space.riri.weatherfoxy.data.repo
 
-import kotlinx.coroutines.flow.Flow
 import space.riri.weatherfoxy.data.model.HourlyWeatherDataModel
 import space.riri.weatherfoxy.data.model.TodayWeatherDataModel
 import space.riri.weatherfoxy.data.model.WeekWeatherDataModel
 
 interface WeatherRepository {
 
-    suspend fun getHourlyWeather() : Flow<List<HourlyWeatherDataModel>>
+    suspend fun getHourlyWeather() : List<HourlyWeatherDataModel>
 
-    fun getTodayWeather() : Flow<TodayWeatherDataModel>
+    suspend fun getTodayWeather() : TodayWeatherDataModel
 
-    fun getWeekWeather() : Flow<List<WeekWeatherDataModel>>
+    suspend fun getWeekWeather() : List<WeekWeatherDataModel>
 }
