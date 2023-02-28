@@ -1,5 +1,6 @@
 package space.riri.weatherfoxy.di
 
+
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,11 +34,14 @@ object RepoModule {
         apiService: ApiService,
         hourlyMapper: HourlyWeatherDataMapper,
         todayMapper: TodayWeatherDataMapper,
-        weekMapper: WeekWeatherDataMapper
-    ) : WeatherRepository = WeatherRepositoryImpl(
+        weekMapper: WeekWeatherDataMapper,
+    ): WeatherRepository = WeatherRepositoryImpl(
         apiService,
         hourlyMapper,
         todayMapper,
-        weekMapper
+        weekMapper,
     )
+@Singleton
+fun
+
 }

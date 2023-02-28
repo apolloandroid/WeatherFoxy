@@ -16,4 +16,7 @@ interface ApiService {
 
     @GET("weather/week")
     suspend fun getWeekWeather() : List<WeekWeatherResponse>
+
+
+
 }

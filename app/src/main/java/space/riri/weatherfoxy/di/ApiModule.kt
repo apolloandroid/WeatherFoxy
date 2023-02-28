@@ -10,9 +10,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import space.riri.weatherfoxy.BuildConfig.BASE_URL
 import space.riri.weatherfoxy.data.api.services.ApiService
-import space.riri.weatherfoxy.data.mapper.HourlyWeatherDataMapper
-import space.riri.weatherfoxy.data.repo.WeatherRepository
-import space.riri.weatherfoxy.data.repo.WeatherRepositoryImpl
 import javax.inject.Singleton
 
 

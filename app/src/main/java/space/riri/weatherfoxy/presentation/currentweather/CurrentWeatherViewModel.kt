@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import space.riri.weatherfoxy.data.repo.WeatherRepository
 import space.riri.weatherfoxy.presentation.currentweather.mapper.TodayWeatherItemMapper
@@ -25,34 +26,22 @@ class CurrentWeatherViewModel @Inject constructor(
         mutableUiState.value = CurrentWeatherUiState(isLoading = true)
         viewModelScope.launch {
             try {
-
-
-                val models = weatherRepository.getTodayWeather()
-                val weekModels = weatherRepository.getWeekWeather()
+                val models = async {
+                    weatherRepository.getTodayWeather()
+                }
+                val weekModels = async { weatherRepository.getWeekWeather() }
                 val state = CurrentWeatherUiState(
-                    todayModel = todayMapper.map(models),
-                    weekItems = weekMapper.map(weekModels)
+                    todayModel = todayMapper.map(models.await()),
+                    weekItems = weekMapper.map(weekModels.await())
+
                 )
                 mutableUiState.postValue(state)
+
+
             } catch (exception: Exception) {
                 exception.printStackTrace()
             }
         }
-//        weatherRepository.getTodayWeather()
-//            .combine(weatherRepository.getWeekWeather()){todayModel, weekModels ->
-//                CurrentWeatherUiState(
-//                    todayModel = todayMapper.map(todayModel),
-//                    weekItems = weekMapper.map(weekModels)
-//                )
-//            }
-//            .onEach { state ->
-//                mutableUiState.postValue(state)
-//            }
-//            .flowOn(Dispatchers.IO)
-//            .catch {throwable ->
-//                throwable.printStackTrace()
-//            }
-//            .launchIn(viewModelScope)
-//    }
+
     }
 }

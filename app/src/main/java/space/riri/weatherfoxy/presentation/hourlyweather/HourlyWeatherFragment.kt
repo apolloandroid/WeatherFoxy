@@ -10,12 +10,11 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import space.riri.weatherfoxy.R
 import space.riri.weatherfoxy.databinding.HourlyWeatherBinding
 import space.riri.weatherfoxy.presentation.hourlyweather.adapter.HourlyWeatherAdapter
-import space.riri.weatherfoxy.presentation.hourlyweather.model.ItemHourlyModel
+
 
 @AndroidEntryPoint
 class HourlyWeatherFragment : Fragment() {

@@ -4,15 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isGone
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import space.riri.weatherfoxy.R
 import space.riri.weatherfoxy.presentation.currentweather.adapter.CurrentWeatherAdapter
 import space.riri.weatherfoxy.databinding.CurrentWeatherFragmentBinding
-import space.riri.weatherfoxy.presentation.currentweather.model.ItemWeatherModel
 import space.riri.weatherfoxy.utils.setImageDrawable
 
 @AndroidEntryPoint
