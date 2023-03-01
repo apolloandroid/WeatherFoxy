@@ -9,6 +9,9 @@ import space.riri.weatherfoxy.data.api.services.ApiService
 import space.riri.weatherfoxy.data.mapper.HourlyWeatherDataMapper
 import space.riri.weatherfoxy.data.mapper.TodayWeatherDataMapper
 import space.riri.weatherfoxy.data.mapper.WeekWeatherDataMapper
+import space.riri.weatherfoxy.data.preference.UserPreference
+import space.riri.weatherfoxy.data.repo.UserRepository
+import space.riri.weatherfoxy.data.repo.UserRepositoryImpl
 import space.riri.weatherfoxy.data.repo.WeatherRepository
 import space.riri.weatherfoxy.data.repo.WeatherRepositoryImpl
 import javax.inject.Singleton
@@ -30,7 +33,7 @@ object RepoModule {
 
     @Singleton
     @Provides
-    fun providesRepository(
+    fun provideWeatherRepository(
         apiService: ApiService,
         hourlyMapper: HourlyWeatherDataMapper,
         todayMapper: TodayWeatherDataMapper,
@@ -39,9 +42,11 @@ object RepoModule {
         apiService,
         hourlyMapper,
         todayMapper,
-        weekMapper,
+        weekMapper
     )
-@Singleton
-fun
 
+    @Singleton
+    @Provides
+    fun provideUserRepository(userPreference: UserPreference): UserRepository =
+        UserRepositoryImpl(userPreference)
 }

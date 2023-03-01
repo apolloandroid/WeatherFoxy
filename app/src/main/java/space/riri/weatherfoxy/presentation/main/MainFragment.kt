@@ -6,11 +6,11 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import space.riri.weatherfoxy.R
 import space.riri.weatherfoxy.databinding.MainFragmentBinding
+import space.riri.weatherfoxy.presentation.choiceanimal.ChoiceAnimalFragment
 import space.riri.weatherfoxy.presentation.currentweather.CurrentWeatherFragment
 import space.riri.weatherfoxy.presentation.hourlyweather.HourlyWeatherFragment
 
 class MainFragment : Fragment() {
-
 
     companion object {
         fun newInstance() = MainFragment()
@@ -50,7 +50,7 @@ class MainFragment : Fragment() {
                     true
                 }
                 R.id.graphic -> {
-                    openFragment(CurrentWeatherFragment.newInstance())
+                    openFragment(ChoiceAnimalFragment.newInstance())
                     true
                 }
                 else -> {

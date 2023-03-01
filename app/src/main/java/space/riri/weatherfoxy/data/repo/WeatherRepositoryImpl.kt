@@ -18,9 +18,7 @@ class WeatherRepositoryImpl(
     private val service: ApiService,
     private val hourlyMapper: HourlyWeatherDataMapper,
     private val todayMapper: TodayWeatherDataMapper,
-    private val weekMapper: WeekWeatherDataMapper,
-
-
+    private val weekMapper: WeekWeatherDataMapper
 ) : WeatherRepository {
 
     override suspend fun getHourlyWeather(): List<HourlyWeatherDataModel> {

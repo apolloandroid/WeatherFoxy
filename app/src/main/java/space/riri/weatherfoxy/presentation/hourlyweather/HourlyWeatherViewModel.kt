@@ -30,6 +30,5 @@ class HourlyWeatherViewModel @Inject constructor(
                 exception.printStackTrace()
             }
         }
-
     }
 }

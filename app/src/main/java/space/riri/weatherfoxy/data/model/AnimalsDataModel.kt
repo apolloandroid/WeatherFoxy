@@ -6,10 +6,11 @@ import space.riri.weatherfoxy.R
 enum class AnimalsDataModel(
     @DrawableRes
     val iconAnimal: Int
-    ) {
+) {
     BUNNY(R.drawable.ic_bunny),
     CAT(R.drawable.ic_cat),
     HEDGEHOG(R.drawable.ic_hedgehog),
     PENGUIN(R.drawable.ic_penguin),
-    PUPPY(R.drawable.ic_puppy)
+    PUPPY(R.drawable.ic_puppy),
+    FOX(R.drawable.ic_foxy_smile)
 }

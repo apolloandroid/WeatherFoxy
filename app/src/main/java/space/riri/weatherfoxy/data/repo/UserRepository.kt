@@ -4,7 +4,9 @@ import space.riri.weatherfoxy.data.model.AnimalsDataModel
 
 interface UserRepository {
 
-    fun putCurrentAnimals(animalsDataModel: AnimalsDataModel)
+    fun setCurrentAnimal(animalsDataModel: AnimalsDataModel)
 
-    fun getCurrentAnimals(): AnimalsDataModel
+    fun getCurrentAnimal(): AnimalsDataModel
+
+    fun getAnimals(): List<AnimalsDataModel>
 }

@@ -8,14 +8,15 @@ import javax.inject.Inject
 
 class ChoiceAnimalsItemMapper @Inject constructor() {
 
-    fun map(dataModels: List<AnimalsDataModel>) : List<ItemAnimalsModel> {
-        return dataModels.map(::mapToItem)
-    }
-
-    private fun mapToItem(dataModel: AnimalsDataModel) : ItemAnimalsModel {
-        return ItemAnimalsModel(
-           iconAnimal = dataModel.iconAnimal,
-            isCurrent = false
-        )
+    fun map(
+        animals: List<AnimalsDataModel>,
+        currentAnimal: AnimalsDataModel
+    ): List<ItemAnimalsModel> {
+        return animals.map {
+            ItemAnimalsModel(
+                animal = it,
+                isCurrent = it == currentAnimal
+            )
+        }
     }
 }

@@ -4,11 +4,11 @@ import space.riri.weatherfoxy.data.model.AnimalsDataModel
 
 class ChoiceAnimalsDomainMapper {
 
-    fun map(item: AnimalsDataModel) = ChoiceAnimalsDomainModel(
-        ChoiceAnimalsDomainModel(
-            iconAnimal = item.iconAnimal,
-            current = item.current
-        )
-
-    )
+//    fun map(item: AnimalsDataModel) = ChoiceAnimalsDomainModel(
+//        ChoiceAnimalsDomainModel(
+//            iconAnimal = item.iconAnimal,
+//            current = item.current
+//        )
+//
+//    )
 }
